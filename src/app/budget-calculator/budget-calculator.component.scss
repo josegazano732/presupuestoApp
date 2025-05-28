@@ -1,0 +1,244 @@
+// Estilos básicos para elementos deshabilitados
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+// Estilo para inputs numéricos
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}
+
+.header-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+}
+
+// Vista desktop
+.desktop-view {
+  display: block;
+}
+
+.mobile-view {
+  display: none;
+}
+
+// Estilos para la vista móvil
+.mobile-view {
+  .add-item-fab {
+    position: fixed;
+    bottom: 90px;
+    right: 16px;
+    z-index: 1000;
+  }
+
+  .mobile-cards {
+    margin-bottom: 120px;
+
+    .item-card {
+      margin-bottom: 16px;
+      border-radius: 12px;
+
+      mat-card-header {
+        padding: 16px 16px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        mat-card-title {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .delete-button {
+          margin: -8px -8px -8px 0;
+        }
+      }
+
+      mat-card-content {
+        padding: 16px;
+      }
+    }
+  }
+
+  .mobile-field {
+    margin-bottom: 16px;
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .mobile-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+
+    .half-width {
+      flex: 1;
+    }
+
+    .subtotal-field {
+      display: flex;
+      flex-direction: column;
+
+      .subtotal-value {
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #1976d2;
+        margin-top: 4px;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.mobile-total-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 16px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+  .total-amount {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 16px;
+    color: #1976d2;
+  }
+
+  .mobile-pdf-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+.mat-column-actions {
+  width: 60px;
+  min-width: 60px;
+}
+
+.subtotal-value {
+  font-weight: 500;
+}
+
+.total-value {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #1976d2;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.mobile-label {
+  display: none;
+}
+
+// Estilos responsivos para tablets
+@media screen and (max-width: 768px) {
+  .budget-container {
+    background-color: #f5f5f5;
+  }
+
+  .content-wrapper {
+    padding: 8px;
+  }
+
+  .table-container {
+    margin-bottom: 80px;
+    background: transparent;
+    box-shadow: none;
+    
+    .responsive-table {
+      .mat-mdc-header-row {
+        display: none;
+      }
+
+      .mat-mdc-row {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        margin-bottom: 12px;
+        background: white;
+        border-radius: 12px;
+      }
+    }
+  }
+}
+
+// Estilos responsivos para móviles
+@media screen and (max-width: 430px) {
+  .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    display: block;
+  }
+
+  .mobile-total-section {
+    display: block;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// Solo mantenemos estilos específicos que no se pueden manejar fácilmente con Tailwind
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+// Estilo para inputs numéricos
+input[type="number"] {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  -moz-appearance: textfield;
+}
